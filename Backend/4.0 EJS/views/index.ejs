@@ -1,0 +1,33 @@
+<% var today = new Date(); %>
+<% var weekday = today.getDay(); %>
+<% var result = 0; %>
+
+<% switch (weekday) {
+  case 0:
+    result = "Sunday";
+    break;
+  case 1:
+    result = "Monday";
+    break;
+  case 2:
+    result = "Tuesday";
+    break;
+  case 3:
+    result = "Wednesday";
+    break;
+  case 4:
+    result = "Thursday";
+    break;
+  case 5:
+    result = "Friday";
+    break;
+  case 6:
+    result = "Saturday";
+    break;
+
+  default:
+    break;
+}; %>
+
+<h1>Today is <%= result %></h1>
+```
