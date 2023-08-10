@@ -1,0 +1,23 @@
+<%- include ("partials/header.ejs") %>
+
+
+<div class="container">
+  <div>
+    <h1>Simple List</h1>
+  </div>
+  <div class="list">
+    <ol>
+      <% for(var i = 0; i < listItems.length; i++) { %>
+        <li><%= listItems[i] %></li>
+      <% } %>
+      <form action="/submit" method="POST">
+        <input type="text" name="item" placeholder="new item">
+        <input type="submit" value="OK">
+      </form>
+      <!--  Lembbre que conforme a pessoa adiciona texto e tenta enviar a informação o back precisa processar a info e enviar de volta para o front. O front então recebe a info e renderiza novamente da forma que for mais conveniente. -->
+
+      <!-- obs voltar ao passing data -->
+
+    </ol>
+  </div>
+</div>
