@@ -23,6 +23,10 @@ app.post("/submit", (req, res) => {
   console.log(listItems);
 });
 
+app.post("/clear", (req, res) => {
+  listItems = [];
+  res.render('index.ejs', { listItems: listItems });
+});   
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
