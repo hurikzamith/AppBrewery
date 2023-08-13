@@ -3,28 +3,52 @@
 
 <div class="container">
   <div>
-    <h1>Simple List</h1>
+    <h1>Simplist</h1>
   </div>
+
+  <div class="flex">
+    <div>
+      <a href="/today"  style="text-decoration: none;">
+        <h2>Today</h2>
+      </a>
+    </div>
+  </div>
+  <div>
+    <a href="/work"  style="text-decoration: none;">
+      <h6>Work</h2>
+    </a>
+  </div>
+
   <div class="list">
     <ol>
-      <% if (locals.listItems) { %>
-        <% for(var i = 0; i < listItems.length; i++) { %>
-          <li><%= listItems[i] %></li>
+      <% if (locals.listItemsToday) { %>
+        <% for(var i = 0; i < listItemsToday.length; i++) { %>
+          <li><input type="checkbox" class="box form-check-input"><%= listItemsToday[i] %></li>
         <% } %>
       <% } %>
-      <form action="/submit" method="POST">
-        <input type="text" name="item" placeholder="new item" required="true">
-        <input type="submit" value="OK">
+
+      <form action="/submitToday" method="POST">
+        <div  class="form-group">
+          <input type="text" class="form-control" name="item" placeholder="new item" required="true">
+          <input type="submit" class="btn btn-primary mt-2" value="Add">
+        </div>
       </form>
-      <form action="/clear" method="POST">
-        <button type="submit">Clear List</button>
+      <form action="/clearToday" method="POST">
+        <button type="submit" class="btn btn-primary my-3">Clear List</button>
       </form>
-
-
-      <!--  Lembbre que conforme a pessoa adiciona texto e tenta enviar a informação o back precisa processar a info e enviar de volta para o front. O front então recebe a info e renderiza novamente da forma que for mais conveniente. -->
-
-      <!-- obs voltar ao passing data -->
 
     </ol>
   </div>
 </div>
+
+
+<%- include ("partials/footer.ejs") %>
+
+
+<script>
+  $(document).ready(function() {
+    $('.box').click(function() {
+      $(this).parent().toggleClass('checked');
+    });
+  });
+</script>

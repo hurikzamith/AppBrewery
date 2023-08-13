@@ -11,7 +11,7 @@ app.use(express.static("public"));
 //Hint 3: Add the CSS link in header.ejs
 
 //Step 4 - Add a dynamic year to the footer.
-//Hint: Google to find out how to get the current year using JS.
+/root/code/hurikzamith/AppBrewery/Backend/4.3 EJS Partials//Hint: Google to find out how to get the current year using JS.
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
