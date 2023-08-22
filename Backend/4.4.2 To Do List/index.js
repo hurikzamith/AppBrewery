@@ -26,6 +26,12 @@ function addItemWork(item) {
   listItemsWork.push(item);
 }
 
+// function playSound() {
+//   let audio = new Audio('pop.mp3');
+//   audio.play();
+// }
+
+
 // GET ROUTES
 
 app.get('/', (req, res) => {

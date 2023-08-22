@@ -1,54 +1,45 @@
-<%- include ("partials/header.ejs") %>
+
+<div class="container-background">
+  <%- include ("partials/header.ejs") %>
 
 
-<div class="container">
-  <div>
-    <h1>Simplist</h1>
-  </div>
+  <div class="container">
+    <div id="title">
+      <h1>Simplist</h1>
+    </div>
+    <div class="container-lists">
+      <div>
+        <div>
+          <a href="/today"  style="text-decoration: none;">
+            <h2>Today</h2>
+          </a>
+        </div>
+      </div>
+      <div>
+        <a href="/work"  style="text-decoration: none;">
+          <h6>Work</h2>
+        </a>
+      </div>
+    </div>
+    <div class="list">
+      <ol>
+        <% if (locals.listItemsToday) { %>
+          <% for(var i = 0; i < listItemsToday.length; i++) { %>
+            <li><input type="checkbox" class="box form-check-input"><%= listItemsToday[i] %></li>
+          <% } %>
+        <% } %>
 
-  <div class="flex">
-    <div>
-      <a href="/today"  style="text-decoration: none;">
-        <h2>Today</h2>
-      </a>
+        <form action="/submitToday" method="POST">
+          <div  class="form-group">
+            <input type="text" class="form-control" name="item" placeholder="new item" required="true">
+            <input type="submit" class="btn btn-primary mt-2" value="Add">
+          </div>
+        </form>
+        <form action="/clearToday" method="POST">
+          <button type="submit" class="btn btn-primary my-3">Clear List</button>
+        </form>
+
+      </ol>
     </div>
   </div>
-  <div>
-    <a href="/work"  style="text-decoration: none;">
-      <h6>Work</h2>
-    </a>
-  </div>
-
-  <div class="list">
-    <ol>
-      <% if (locals.listItemsToday) { %>
-        <% for(var i = 0; i < listItemsToday.length; i++) { %>
-          <li><input type="checkbox" class="box form-check-input"><%= listItemsToday[i] %></li>
-        <% } %>
-      <% } %>
-
-      <form action="/submitToday" method="POST">
-        <div  class="form-group">
-          <input type="text" class="form-control" name="item" placeholder="new item" required="true">
-          <input type="submit" class="btn btn-primary mt-2" value="Add">
-        </div>
-      </form>
-      <form action="/clearToday" method="POST">
-        <button type="submit" class="btn btn-primary my-3">Clear List</button>
-      </form>
-
-    </ol>
-  </div>
 </div>
-
-
-<%- include ("partials/footer.ejs") %>
-
-
-<script>
-  $(document).ready(function() {
-    $('.box').click(function() {
-      $(this).parent().toggleClass('checked');
-    });
-  });
-</script>

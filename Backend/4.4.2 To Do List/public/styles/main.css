@@ -1,4 +1,37 @@
+#title {
+  color: rgb(0, 255, 166);
+  margin-bottom: 10vh;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .checked {
-  color: #888;
+  color: red;
   text-decoration: line-through;
+}
+
+/* .container{
+  background-color: aqua;
+} */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
+  height: 50vh;
+  width: 80vh;
+}
+
+.container-background{
+  color: rgb(0, 255, 166);
+  background-color: black;
+  height: 100vh;
+}
+
+.container-lists {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
