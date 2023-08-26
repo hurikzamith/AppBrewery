@@ -1,43 +1,43 @@
-<%- include ("partials/header.ejs") %>
+
+<div class="container-background">
+  <%- include ("partials/header.ejs") %>
 
 
-<div class="container">
-  <div>
-    <h1>Simplist</h1>
-  </div>
-
-
-  <div>
-    <div>
-      <a href="/today" style="text-decoration: none;">
-        <h6>Today</h6>
-      </a>
+  <div class="container">
+    <div id="title">
+      <h1>Simplist</h1>
     </div>
-  </div>
-  <div>
-    <a href="/work"  style="text-decoration: none;">
-      <h2>Work</h2>
-    </a>
-  </div>
-
-  <div class="list">
-    <ol>
-      <% if (locals.listItemsWork) { %>
-        <% for(var i = 0; i < listItemsWork.length; i++) { %>
-          <li><input type="checkbox" class="box"><%= listItemsWork[i] %></li>
+    <div class="container-lists">
+      <div class="list-type">
+          <a href="/today"  style="text-decoration: none;">
+            <h6>Today</h6>
+          </a>
+      </div>
+      <div class="list-type">
+        <a href="/work"  style="text-decoration: none;">
+          <h2>Work</h2>
+        </a>
+      </div>
+    </div>
+    <div class="list">
+      <ol>
+        <% if (locals.listItemsWork) { %>
+          <% for(var i = 0; i < listItemsWork.length; i++) { %>
+            <li><input type="checkbox" class="box form-check-input"><%= listItemsWork[i] %></li>
+          <% } %>
         <% } %>
-      <% } %>
 
-     <form action="/submitWork" method="POST">
-        <div  class="form-group">
-          <input type="text" class="form-control" name="item" placeholder="new item" required="true">
-          <input type="submit" class="btn btn-primary mt-2" value="Add">
-        </div>
-      </form>
-      <form action="/clearToday" method="POST">
-        <button type="submit" class="btn btn-primary my-3">Clear List</button>
-      </form>
+        <form action="/submitWork" method="POST">
+          <div  class="form-group">
+            <input type="text" class="form-control" name="item" placeholder="new item" required="true">
+            <input type="submit" class="btn btn-primary mt-2" value="Add">
+          </div>
+        </form>
+        <form action="/clearWork" method="POST">
+          <button type="submit" class="btn btn-primary my-3">Clear List</button>
+        </form>
 
-    </ol>
+      </ol>
+    </div>
   </div>
 </div>

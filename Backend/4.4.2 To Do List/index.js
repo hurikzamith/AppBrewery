@@ -35,11 +35,11 @@ function addItemWork(item) {
 // GET ROUTES
 
 app.get('/', (req, res) => {
-  res.render('index.ejs');
+  res.render('index.ejs', {formattedDate: formattedDate});
 });
 
 app.get('/today', (req, res) => {
-  res.render('index.ejs', { listItemsToday: listItemsToday });
+  res.render('index.ejs', { listItemsToday: listItemsToday, formattedDate: formattedDate });
 });
 
 app.get('/work', (req, res) => {
